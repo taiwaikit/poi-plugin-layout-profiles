@@ -1,7 +1,6 @@
 # 布局方案 · poi-plugin-layout-profiles
 
 [![npm version](https://img.shields.io/npm/v/poi-plugin-layout-profiles.svg)](https://www.npmjs.com/package/poi-plugin-layout-profiles)
-[![npm downloads](https://img.shields.io/npm/dm/poi-plugin-layout-profiles.svg)](https://www.npmjs.com/package/poi-plugin-layout-profiles)
 [![license](https://img.shields.io/npm/l/poi-plugin-layout-profiles.svg)](LICENSE)
 ![poi](https://img.shields.io/badge/poi-%E2%89%A512-2d72d2)
 
