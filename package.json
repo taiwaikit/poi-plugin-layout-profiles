@@ -1,6 +1,6 @@
 {
   "name": "poi-plugin-layout-profiles",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Save and one-click switch complete poi layout presets: window bounds, UI zoom, game area resolution, horizontal/vertical layout, tab area direction and overview panel arrangement.",
   "main": "index.es",
   "license": "MIT",
