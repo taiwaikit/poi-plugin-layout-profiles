@@ -58,6 +58,8 @@ export default class LayoutProfilesPanel extends React.Component {
       confirm: '',
       // 实时显示的当前窗口状态，切方案后能立刻对照
       liveSummary: '',
+      // 正在录快捷键的方案 id
+      recordingId: '',
     }
   }
 
@@ -239,6 +241,16 @@ export default class LayoutProfilesPanel extends React.Component {
     if (!accel) return
     const { store } = this.state
     const value = accel === '__CLEAR__' ? '' : accel
+    if (!value) {
+      const { store: s0 } = this.state
+      this.persist({
+        ...s0,
+        profiles: s0.profiles.map((p) => (p.id === profile.id ? { ...p, hotkey: '' } : p)),
+      })
+      this.refreshHotkeys()
+      this.flash(`已清除「${profile.name}」的快捷键`)
+      return
+    }
     if (value) {
       const dup = (store.profiles || []).find(
         (p) => p.id !== profile.id && (p.hotkey || '').toLowerCase() === value.toLowerCase(),
@@ -331,6 +343,7 @@ export default class LayoutProfilesPanel extends React.Component {
     const armedCapture = this.state.confirm === `capture:${profile.id}`
     const armedDelete = this.state.confirm === `delete:${profile.id}`
     const isActive = store.activeProfileId === profile.id
+    const recording = this.state.recordingId === profile.id
     return (
       <Card
         key={profile.id}
@@ -396,21 +409,27 @@ export default class LayoutProfilesPanel extends React.Component {
           <div
             tabIndex={0}
             onKeyDown={(e) => this.handleHotkeyKeyDown(e, profile)}
+            onFocus={() => this.setState({ recordingId: profile.id })}
+            onBlur={() => this.setState({ recordingId: '' })}
             style={{
-              minWidth: 136,
+              minWidth: 150,
               minHeight: 28,
               display: 'flex',
               alignItems: 'center',
+              justifyContent: 'center',
               padding: '4px 10px',
-              fontSize: 12,
+              fontSize: recording ? 11 : 12,
               borderRadius: 3,
-              border: `1px solid ${fail ? '#c23030' : 'rgba(120,120,120,0.45)'}`,
+              border: `1px solid ${
+                recording ? '#2d72d2' : fail ? '#c23030' : 'rgba(120,120,120,0.45)'
+              }`,
+              background: recording ? 'rgba(45,114,210,0.12)' : 'transparent',
               cursor: 'pointer',
               userSelect: 'none',
             }}
             title="点这里，然后按组合键；Esc 清除"
           >
-            {profile.hotkey || '点击设置快捷键'}
+            {recording ? '按下组合键…（Esc 清除）' : profile.hotkey || '点击设置快捷键'}
           </div>
           <Button
             minimal
