@@ -1,0 +1,42 @@
+{
+  "name": "poi-plugin-layout-profiles",
+  "version": "0.2.0",
+  "description": "Save and one-click switch complete poi layout presets: window bounds, UI zoom, game area resolution, horizontal/vertical layout, tab area direction and overview panel arrangement.",
+  "main": "index.es",
+  "license": "MIT",
+  "author": {
+    "name": "51"
+  },
+  "keywords": [
+    "poi",
+    "poi-plugin",
+    "kancolle",
+    "kanmusu",
+    "layout",
+    "profile",
+    "preset",
+    "window",
+    "zoom",
+    "multi-monitor",
+    "streaming",
+    "moonlight"
+  ],
+  "files": [
+    "index.es",
+    "lib/",
+    "views/",
+    "i18n/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "poi": ">=10"
+  },
+  "poiPlugin": {
+    "title": "布局方案",
+    "icon": "fa/th-large",
+    "priority": 500,
+    "i18nDir": "i18n",
+    "description": "把 poi 的窗口尺寸/位置、界面缩放、游戏区分辨率、横竖布局、标签栏方向和概览面板摆放存成多套方案，一键切换。支持全局快捷键、启动参数自动套用、回收站与导入导出。"
+  }
+}
