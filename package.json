@@ -1,11 +1,19 @@
 {
   "name": "poi-plugin-layout-profiles",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Save and one-click switch complete poi layout presets: window bounds, UI zoom, game area resolution, horizontal/vertical layout, tab area direction and overview panel arrangement.",
   "main": "index.es",
   "license": "MIT",
   "author": {
     "name": "51"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taiwaikit/poi-plugin-layout-profiles.git"
+  },
+  "homepage": "https://github.com/taiwaikit/poi-plugin-layout-profiles#readme",
+  "bugs": {
+    "url": "https://github.com/taiwaikit/poi-plugin-layout-profiles/issues"
   },
   "keywords": [
     "poi",
